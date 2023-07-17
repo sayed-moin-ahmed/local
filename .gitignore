@@ -1,5 +1,11 @@
 HELP.md
-target/
+target/classes/com/**/
+target/classes/generated-sources/**/
+target/classes/generated-test-sources/**/
+target/classes/maven-archiver/**/
+target/classes/maven-status/**/
+target/classes/surefire-reports/**/
+target/classes/test-classes/**/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -31,3 +37,13 @@ build/
 
 ### VS Code ###
 .vscode/
+target/.dekorate/**
+/target/maven-archiver/pom.properties
+/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/
+/target/maven-status/maven-compiler-plugin/compile/default-compile/
+/target/surefire-reports/com.skaffolddemo.local.LocalApplicationTests.txt
+/target/classes/application.properties
+/target/local-0.0.1-SNAPSHOT.jar
+/target/local-0.0.1-SNAPSHOT.jar.original
+/target/test-classes/com/skaffolddemo/local/LocalApplicationTests.class
+/target/surefire-reports/TEST-com.skaffolddemo.local.LocalApplicationTests.xml
