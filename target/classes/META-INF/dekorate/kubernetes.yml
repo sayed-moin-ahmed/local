@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   annotations:
     app.dekorate.io/vcs-url: <<unknown>>
-    app.dekorate.io/commit-id: 5ecda9d27a0dcc07d30705c7c4328cf587299f15
+    app.dekorate.io/commit-id: 996bf724497c69f16257c729638a4ced98e2528c
   labels:
     app.kubernetes.io/name: local
     app.kubernetes.io/version: 0.0.1-SNAPSHOT
@@ -17,9 +17,6 @@ spec:
       app.kubernetes.io/version: 0.0.1-SNAPSHOT
   template:
     metadata:
-      annotations:
-        app.dekorate.io/vcs-url: <<unknown>>
-        app.dekorate.io/commit-id: 5ecda9d27a0dcc07d30705c7c4328cf587299f15
       labels:
         app.kubernetes.io/name: local
         app.kubernetes.io/version: 0.0.1-SNAPSHOT
@@ -32,50 +29,29 @@ spec:
                   fieldPath: metadata.namespace
           image: sayed/local:0.0.1-SNAPSHOT
           imagePullPolicy: IfNotPresent
-          livenessProbe:
-            failureThreshold: 3
-            httpGet:
-              path: /actuator/health/liveness
-              port: 8080
-              scheme: HTTP
-            initialDelaySeconds: 0
-            periodSeconds: 30
-            successThreshold: 1
-            timeoutSeconds: 10
           name: local
-          readinessProbe:
-            failureThreshold: 3
-            httpGet:
-              path: /actuator/health/readiness
-              port: 8080
-              scheme: HTTP
-            initialDelaySeconds: 0
-            periodSeconds: 30
-            successThreshold: 1
-            timeoutSeconds: 10
+          ports:
+            - containerPort: 8080
+              name: http
+              protocol: TCP
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: local-service
-spec:
-  selector:
-    app.kubernetes.io/name: local
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8080
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
   annotations:
     app.dekorate.io/vcs-url: <<unknown>>
-    app.dekorate.io/commit-id: 5ecda9d27a0dcc07d30705c7c4328cf587299f15
+    app.dekorate.io/commit-id: 996bf724497c69f16257c729638a4ced98e2528c
   labels:
     app.kubernetes.io/name: local
     app.kubernetes.io/version: 0.0.1-SNAPSHOT
   name: local
 spec:
-  rules:
-    - host: ""
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app.kubernetes.io/name: local
+    app.kubernetes.io/version: 0.0.1-SNAPSHOT
+  type: ClusterIP
