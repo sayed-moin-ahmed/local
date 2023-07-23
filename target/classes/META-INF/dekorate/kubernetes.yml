@@ -52,10 +52,9 @@ spec:
       protocol: TCP
       targetPort: 8080
     - name: jmx
-      nodePort: 32000
-      port: 32000
+      port: 9010
       protocol: TCP
-      targetPort: 32000
+      targetPort: 9010
   selector:
     app.kubernetes.io/name: local
     app.kubernetes.io/version: 0.0.1-SNAPSHOT
