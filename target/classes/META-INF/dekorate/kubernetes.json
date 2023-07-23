@@ -4,11 +4,11 @@
   "metadata" : {
     "annotations" : {
       "app.dekorate.io/vcs-url" : "<<unknown>>",
-      "app.dekorate.io/commit-id" : "9997b6eb9d4a64035b26ffdeafeac0de5b4861cd"
+      "app.dekorate.io/commit-id" : "9028e8e2ff5bc0171661cca72ab8acd7fe42ebd6"
     },
     "labels" : {
-      "app.kubernetes.io/version" : "0.0.1-SNAPSHOT",
-      "app.kubernetes.io/name" : "local"
+      "app.kubernetes.io/name" : "local",
+      "app.kubernetes.io/version" : "0.0.1-SNAPSHOT"
     },
     "name" : "local"
   },
@@ -16,15 +16,15 @@
     "replicas" : 1,
     "selector" : {
       "matchLabels" : {
-        "app.kubernetes.io/version" : "0.0.1-SNAPSHOT",
-        "app.kubernetes.io/name" : "local"
+        "app.kubernetes.io/name" : "local",
+        "app.kubernetes.io/version" : "0.0.1-SNAPSHOT"
       }
     },
     "template" : {
       "metadata" : {
         "labels" : {
-          "app.kubernetes.io/version" : "0.0.1-SNAPSHOT",
-          "app.kubernetes.io/name" : "local"
+          "app.kubernetes.io/name" : "local",
+          "app.kubernetes.io/version" : "0.0.1-SNAPSHOT"
         }
       },
       "spec" : {
@@ -39,72 +39,15 @@
           } ],
           "image" : "sayed/local:0.0.1-SNAPSHOT",
           "imagePullPolicy" : "IfNotPresent",
-          "livenessProbe" : {
-            "failureThreshold" : 3,
-            "httpGet" : {
-              "path" : "/actuator/health/liveness",
-              "port" : 8080,
-              "scheme" : "HTTP"
-            },
-            "initialDelaySeconds" : 0,
-            "periodSeconds" : 30,
-            "successThreshold" : 1,
-            "timeoutSeconds" : 10
-          },
           "name" : "local",
           "ports" : [ {
             "containerPort" : 8080,
             "name" : "http",
             "protocol" : "TCP"
-          } ],
-          "readinessProbe" : {
-            "failureThreshold" : 3,
-            "httpGet" : {
-              "path" : "/actuator/health/readiness",
-              "port" : 8080,
-              "scheme" : "HTTP"
-            },
-            "initialDelaySeconds" : 0,
-            "periodSeconds" : 30,
-            "successThreshold" : 1,
-            "timeoutSeconds" : 10
-          }
+          } ]
         } ]
       }
     }
-  }
-},{
-  "apiVersion" : "networking.k8s.io/v1",
-  "kind" : "Ingress",
-  "metadata" : {
-    "annotations" : {
-      "app.dekorate.io/vcs-url" : "<<unknown>>",
-      "app.dekorate.io/commit-id" : "9997b6eb9d4a64035b26ffdeafeac0de5b4861cd"
-    },
-    "labels" : {
-      "app.kubernetes.io/name" : "local",
-      "app.kubernetes.io/version" : "0.0.1-SNAPSHOT"
-    },
-    "name" : "local"
-  },
-  "spec" : {
-    "rules" : [ {
-      "host" : "",
-      "http" : {
-        "paths" : [ {
-          "backend" : {
-            "service" : {
-              "name" : "local",
-              "port" : {
-                "name" : "http"
-              }
-            }
-          },
-          "path" : "/",
-          "pathType" : "Prefix"
-        } ]
-      }
-    } ]
   }
 },{
   "apiVersion" : "v1",
@@ -112,7 +55,7 @@
   "metadata" : {
     "annotations" : {
       "app.dekorate.io/vcs-url" : "<<unknown>>",
-      "app.dekorate.io/commit-id" : "9997b6eb9d4a64035b26ffdeafeac0de5b4861cd"
+      "app.dekorate.io/commit-id" : "9028e8e2ff5bc0171661cca72ab8acd7fe42ebd6"
     },
     "labels" : {
       "app.kubernetes.io/name" : "local",
