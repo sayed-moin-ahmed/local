@@ -10,3 +10,9 @@ build:
 manifests:
   rawYaml:
     - target/classes/META-INF/dekorate/kubernetes.yml
+portForward:
+  - resourceType: deployment
+    resourceName: local
+    namespace: default
+    port: 8080
+    localPort: 9000
