@@ -10,6 +10,8 @@ build:
 manifests:
   rawYaml:
     - target/classes/META-INF/dekorate/kubernetes.yml
+    - k8s/mysql-deployment.yaml
+    - k8s/mysql-pv.yaml
 portForward:
   - resourceType: deployment
     resourceName: local

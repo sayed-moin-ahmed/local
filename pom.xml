@@ -18,6 +18,11 @@
 	</properties>
 	<dependencies>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-docker-compose</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
 			<groupId>io.dekorate</groupId>
 			<artifactId>kubernetes-spring-starter</artifactId>
 			<version>3.7.0</version>
