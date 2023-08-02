@@ -12,9 +12,21 @@ manifests:
     - target/classes/META-INF/dekorate/kubernetes.yml
     - k8s/mysql-deployment.yaml
     - k8s/mysql-pv.yaml
+    - k8s/redis-config.yaml
+    - k8s/redis-pod.yaml
 portForward:
   - resourceType: deployment
     resourceName: local
     namespace: default
     port: 8080
     localPort: 9000
+  - resourceType: deployment
+    resourceName: mysql
+    namespace: default
+    port: 3306
+    localPort: 3306
+  - resourceType: pod
+    resourceName: redis
+    namespace: default
+    port: 6379
+    localPort: 6380
