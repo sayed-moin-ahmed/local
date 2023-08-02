@@ -14,6 +14,8 @@ manifests:
     - k8s/mysql-pv.yaml
     - k8s/redis-config.yaml
     - k8s/redis-pod.yaml
+    - k8s/zookeeper.yml
+    - k8s/kafka-service.yml
 portForward:
   - resourceType: deployment
     resourceName: local
@@ -30,3 +32,8 @@ portForward:
     namespace: default
     port: 6379
     localPort: 6380
+  - resourceType: deployment
+    resourceName: kafka-broker0
+    namespace: default
+    port: 9092
+    localPort: 9092
