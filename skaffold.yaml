@@ -33,6 +33,11 @@ portForward:
     port: 6379
     localPort: 6380
   - resourceType: deployment
+    resourceName: zookeeper-1
+    namespace: default
+    port: 2181
+    localPort: 2181
+  - resourceType: deployment
     resourceName: kafka-broker0
     namespace: default
     port: 9092
