@@ -9,19 +9,19 @@ build:
         dockerfile: Dockerfile
 manifests:
   rawYaml:
-    - target/classes/META-INF/dekorate/kubernetes.yml
     - k8s/mysql-deployment.yaml
     - k8s/mysql-pv.yaml
     - k8s/redis-config.yaml
     - k8s/redis-pod.yaml
     - k8s/zookeeper.yml
     - k8s/kafka-service.yml
+    - target/classes/META-INF/dekorate/kubernetes.yml
 portForward:
   - resourceType: deployment
     resourceName: local
     namespace: default
     port: 8080
-    localPort: 9000
+    localPort: 8080
   - resourceType: deployment
     resourceName: mysql
     namespace: default
