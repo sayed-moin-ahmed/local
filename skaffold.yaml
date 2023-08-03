@@ -2,11 +2,6 @@ apiVersion: skaffold/v4beta6
 kind: Config
 metadata:
   name: local
-build:
-  artifacts:
-    - image: sayed/local
-      docker:
-        dockerfile: Dockerfile
 manifests:
   rawYaml:
     - k8s/mysql-deployment.yaml
@@ -15,13 +10,7 @@ manifests:
     - k8s/redis-pod.yaml
     - k8s/zookeeper.yml
     - k8s/kafka-service.yml
-    - target/classes/META-INF/dekorate/kubernetes.yml
 portForward:
-  - resourceType: deployment
-    resourceName: local
-    namespace: default
-    port: 8080
-    localPort: 8080
   - resourceType: deployment
     resourceName: mysql
     namespace: default
