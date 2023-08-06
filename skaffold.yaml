@@ -4,6 +4,7 @@ metadata:
   name: local
 manifests:
   rawYaml:
+    - k8s/nginx.yaml
     - k8s/mysql-deployment.yaml
     - k8s/mysql-pv.yaml
     - k8s/redis-config.yaml

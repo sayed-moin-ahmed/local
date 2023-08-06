@@ -1,0 +1,10 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kafka-ingress
+spec:
+  defaultBackend:
+    service:
+      name: kafka-service
+      port:
+        number: 9092
