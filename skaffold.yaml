@@ -4,6 +4,8 @@ metadata:
   name: local
 manifests:
   rawYaml:
+    - k8s/serviceaccount.yaml
+    - k8s/clusterrole.yaml
     - k8s/nginx.yaml
     - k8s/mysql-deployment.yaml
     - k8s/mysql-pv.yaml
